@@ -57,7 +57,7 @@ public class LinkedListPracticeTest {
 	}
 
 	@Test
-	public void checkDeletingNodeFromLinkedListTest4() {
+	public void checkDeletingFirstNodeFromLinkedListTest4() {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
@@ -66,6 +66,19 @@ public class LinkedListPracticeTest {
 		llp.append(myThirdNode);
 		llp.insert(mySecondNode, myFirstNode);
 		boolean test = myFirstNode.equals(llp.pop());
+		assertTrue(test);
+	}
+
+	@Test
+	public void checkDeletingLastNodeFromLinkedListTest5() {
+		INode<Integer> myFirstNode = new MyNode<>(56);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(70);
+		LinkedListPractice llp = new LinkedListPractice();
+		llp.append(myFirstNode);
+		llp.append(myThirdNode);
+		llp.insert(mySecondNode, myFirstNode);
+		boolean test = myThirdNode.equals(llp.popLast());
 		assertTrue(test);
 	}
 }

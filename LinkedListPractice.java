@@ -40,12 +40,23 @@ public class LinkedListPractice {
 		prevNode.setNext(myNode);
 	}
 
-	// pop the element
+	// pop the first node
 	public INode<Integer> pop() {
 		if (head == null)
 			return head;
 		INode<Integer> deletedNode = head;
 		head.setNext(head.getNext());
+		return deletedNode;
+	}
+
+	// deleting last node
+	public INode<Integer> popLast() {
+		INode<Integer> deletedNode = tail;
+		INode<Integer> temp = head;
+		while (temp.getNext() != tail) {
+			temp.setNext(temp.getNext());
+		}
+		tail = temp;
 		return deletedNode;
 	}
 }
