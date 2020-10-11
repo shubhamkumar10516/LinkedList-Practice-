@@ -7,6 +7,8 @@ public class LinkedListPractice {
 	public LinkedListPractice() {
 		tail = head;
 	}
+	
+	// adding node at front
 	public void add(INode<Integer> myNode) {
 		if(tail == null)
 			tail = myNode;
@@ -15,6 +17,18 @@ public class LinkedListPractice {
 		else {
 			myNode.setNext(head);
 			head = myNode;
+		}
+	}
+	
+	// appending node at end
+	public void append(INode<Integer> myNode) {
+		if(tail != null) {
+			 tail.setNext(myNode);
+			 tail = myNode;
+		}
+		else if( tail == null) {
+			 tail  = myNode;
+			 head = myNode;
 		}
 	}
 }
