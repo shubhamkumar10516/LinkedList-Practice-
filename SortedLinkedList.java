@@ -125,9 +125,20 @@ public class SortedLinkedList {
 		return head;
 	}
 
-	// linked list as stack
+	// push operation on stack
 	public INode<Integer> push(INode<Integer> myNode) {
 		add(myNode);
 		return head;
+	}
+
+	// peek operation
+	public int peek(INode<Integer> top) {
+		return top.getData();
+	}
+
+	// Pop operation on stack
+	public INode<Integer> popStack() {
+		 head = head.getNext();
+		 return head;
 	}
 }

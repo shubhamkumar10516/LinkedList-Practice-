@@ -153,4 +153,25 @@ public class SortedLinkedListTest {
 		boolean test = myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode);
 		assertTrue(test);
 	}
+	
+	@Test
+	public void stackPeekAndPopTest() {
+		INode<Integer> myFirstNode = new MyNode<>(70);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(56);
+		SortedLinkedList sll = new SortedLinkedList();
+		INode<Integer> top = sll.push(myFirstNode);
+		top = sll.push(mySecondNode);
+		top = sll.push(myThirdNode);
+		boolean test = 56 == sll.peek(top);
+		assertTrue(test);
+		top = sll.popStack();
+		test = 30 == sll.peek(top);
+		assertTrue(test);
+		top = sll.popStack();
+		test = 70 == sll.peek(top);
+		assertTrue(test);
+		
+		
+	}
 }
