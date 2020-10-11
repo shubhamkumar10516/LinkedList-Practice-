@@ -141,4 +141,9 @@ public class SortedLinkedList {
 		 head = head.getNext();
 		 return head;
 	}
+	
+	// Enqueue operation in queue
+	public void enqueue(INode<Integer> myNode) {
+		append(myNode);
+	}
 }
