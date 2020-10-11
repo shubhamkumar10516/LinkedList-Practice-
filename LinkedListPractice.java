@@ -61,7 +61,7 @@ public class LinkedListPractice {
 	}
 
 	// Searching node with value
-	public boolean searchByValue(int val) {
+	public boolean searchByValueInNode(int val) {
 		if (head == null)
 			return false;
 		INode<Integer> temp = head;

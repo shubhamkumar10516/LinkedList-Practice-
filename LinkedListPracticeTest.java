@@ -91,8 +91,22 @@ public class LinkedListPracticeTest {
 		llp.append(myFirstNode);
 		llp.append(mySecondNode);
 		llp.append(myThirdNode);
-		boolean test = llp.searchByValue(30);
+		boolean test = llp.searchByValueInNode(30);
 		assertTrue(test);
 	}
 
+	@Test
+	public void checkInserting3NodesToLinkedListTest8() {
+		INode<Integer> myFirstNode = new MyNode<>(56);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(70);
+		INode<Integer> nodeToInsert = new MyNode<Integer>(40);
+		LinkedListPractice llp = new LinkedListPractice();
+		llp.append(myFirstNode);
+		llp.append(myThirdNode);
+		llp.insert(mySecondNode, myFirstNode);
+		llp.insert(nodeToInsert, mySecondNode);
+		boolean test = mySecondNode.getNext().equals(nodeToInsert) && nodeToInsert.getNext().equals(myThirdNode);
+		assertTrue(test);
+	}
 }
