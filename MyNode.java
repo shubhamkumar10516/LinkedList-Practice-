@@ -1,20 +1,20 @@
 package com.bridgelab.linkedListPractice;
 
-public class MyNode<T> {
+public class MyNode<T> implements INode<T> {
 
 	private T data;
-	private MyNode<T> next;
+	private INode<T> next;
 
 	public MyNode(T data) {
 		this.data = data;
 		next = null;
 	}
 
-	public MyNode<T> getNext() {
+	public INode<T> getNext() {
 		return next;
 	}
 	
-	public void setNext(MyNode<T> myNode) {
+	public void setNext(INode<T> myNode) {
 		this.next = myNode;
 	}
 	
