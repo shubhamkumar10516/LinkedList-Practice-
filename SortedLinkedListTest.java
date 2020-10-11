@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class LinkedListPracticeTest {
+public class SortedLinkedListTest {
 
 	@Test
 	public void check3NodesLinkedInListTest1() {
@@ -138,6 +138,19 @@ public class LinkedListPracticeTest {
 		head = sll.sortedAdd(myFourthNode);
 		boolean test = (30 == head.getData() && 40 == head.getNext().getData()
 				       && 56 == head.getNext().getNext().getData() && sll.getTail().getData() == 70);
+		assertTrue(test);
+	}
+	
+	@Test
+	public void stackPushTest() {
+		INode<Integer> myFirstNode = new MyNode<>(70);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(56);
+		SortedLinkedList sll = new SortedLinkedList();
+		INode<Integer> top = sll.push(myFirstNode);
+		top = sll.push(mySecondNode);
+		top = sll.push(myThirdNode);
+		boolean test = myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode);
 		assertTrue(test);
 	}
 }

@@ -124,4 +124,10 @@ public class SortedLinkedList {
 		head = myNode;
 		return head;
 	}
+
+	// linked list as stack
+	public INode<Integer> push(INode<Integer> myNode) {
+		add(myNode);
+		return head;
+	}
 }
