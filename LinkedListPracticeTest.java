@@ -68,7 +68,7 @@ public class LinkedListPracticeTest {
 		boolean test = myFirstNode.equals(llp.pop());
 		assertTrue(test);
 	}
-	
+
 	@Test
 	public void checkDeletingLastNodeFromLinkedListTest6() {
 		INode<Integer> myFirstNode = new MyNode<>(56);
@@ -81,7 +81,7 @@ public class LinkedListPracticeTest {
 		boolean test = myThirdNode.equals(llp.popLast());
 		assertTrue(test);
 	}
-	
+
 	@Test
 	public void searchByValueFromLinkedListTest7() {
 		INode<Integer> myFirstNode = new MyNode<>(56);
@@ -96,7 +96,7 @@ public class LinkedListPracticeTest {
 	}
 
 	@Test
-	public void checkInserting3NodesToLinkedListTest8() {
+	public void checkInsertingNodeAfterNodeToLinkedListTest8() {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
@@ -107,6 +107,21 @@ public class LinkedListPracticeTest {
 		llp.insert(mySecondNode, myFirstNode);
 		llp.insert(nodeToInsert, mySecondNode);
 		boolean test = mySecondNode.getNext().equals(nodeToInsert) && nodeToInsert.getNext().equals(myThirdNode);
+		assertTrue(test);
+	}
+
+	@Test
+	public void checkShowSizeByDeletingNodeInLinkedListTest9() {
+		INode<Integer> myFirstNode = new MyNode<>(70);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(56);
+		INode<Integer> nodeToInsert = new MyNode<Integer>(40);
+		LinkedListPractice llp = new LinkedListPractice();
+		llp.add(myFirstNode);
+		llp.add(mySecondNode);
+		llp.add(myThirdNode);
+		llp.insert(nodeToInsert, mySecondNode);
+		boolean test = (3 == llp.showSizeByDeleting(40));
 		assertTrue(test);
 	}
 }

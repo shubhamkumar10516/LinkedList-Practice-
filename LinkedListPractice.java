@@ -5,6 +5,14 @@ public class LinkedListPractice {
 	private INode<Integer> head = null;
 	private INode<Integer> tail;
 
+	public INode<Integer> getHead() {
+		return head;
+	}
+
+	public INode<Integer> getTail() {
+		return tail;
+	}
+
 	public LinkedListPractice() {
 		tail = head;
 	}
@@ -53,10 +61,12 @@ public class LinkedListPractice {
 	public INode<Integer> popLast() {
 		INode<Integer> deletedNode = tail;
 		INode<Integer> temp = head;
+
 		while (temp.getNext() != tail) {
-			temp.setNext(temp.getNext());
+			temp = temp.getNext();
 		}
 		tail = temp;
+		tail.setNext(null);
 		return deletedNode;
 	}
 
@@ -68,8 +78,33 @@ public class LinkedListPractice {
 		while (temp != null) {
 			if (temp.getData() == val)
 				return true;
-			temp.setNext(temp.getNext());
+			temp = temp.getNext();
 		}
 		return false;
+	}
+
+	// delete by value and output size in end
+	public int showSizeByDeleting(int val) {
+		int size = 0;
+		INode<Integer> temp = head;
+		while (temp != null) {
+			size++;
+			temp = temp.getNext();
+		}
+		size = deleteNodeByVal(size, val);
+		return size;
+	}
+
+	// delete by value
+	public int deleteNodeByVal(int size, int val) {
+		INode<Integer> temp = head;
+		while (temp != null) {
+			if (temp.getNext().getData() == val) {
+				temp = temp.getNext().getNext();
+				return size - 1;
+			}
+			temp = temp.getNext();
+		}
+		return size;
 	}
 }

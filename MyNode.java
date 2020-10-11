@@ -13,11 +13,11 @@ public class MyNode<T> implements INode<T> {
 	public INode<T> getNext() {
 		return next;
 	}
-	
+
 	public void setNext(INode<T> myNode) {
 		this.next = myNode;
 	}
-	
+
 	public T getData() {
 		return data;
 	}
