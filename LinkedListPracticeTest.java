@@ -22,10 +22,10 @@ public class LinkedListPracticeTest {
 		INode<Integer> myFirstNode = new MyNode<>(70);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(56);
-		LinkedListPractice llp = new LinkedListPractice();
-		llp.add(myFirstNode);
-		llp.add(mySecondNode);
-		llp.add(myThirdNode);
+		SortedLinkedList sll = new SortedLinkedList();
+		sll.add(myFirstNode);
+		sll.add(mySecondNode);
+		sll.add(myThirdNode);
 		boolean test = myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode);
 		assertTrue(test);
 	}
@@ -35,7 +35,7 @@ public class LinkedListPracticeTest {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.append(myFirstNode);
 		llp.append(mySecondNode);
 		llp.append(myThirdNode);
@@ -48,7 +48,7 @@ public class LinkedListPracticeTest {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.append(myFirstNode);
 		llp.append(myThirdNode);
 		llp.insert(mySecondNode, myFirstNode);
@@ -61,7 +61,7 @@ public class LinkedListPracticeTest {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.append(myFirstNode);
 		llp.append(mySecondNode);
 		llp.append(myThirdNode);
@@ -74,7 +74,7 @@ public class LinkedListPracticeTest {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.append(myFirstNode);
 		llp.append(mySecondNode);
 		llp.append(myThirdNode);
@@ -87,7 +87,7 @@ public class LinkedListPracticeTest {
 		INode<Integer> myFirstNode = new MyNode<>(56);
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.append(myFirstNode);
 		llp.append(mySecondNode);
 		llp.append(myThirdNode);
@@ -101,7 +101,7 @@ public class LinkedListPracticeTest {
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(70);
 		INode<Integer> nodeToInsert = new MyNode<Integer>(40);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.append(myFirstNode);
 		llp.append(myThirdNode);
 		llp.insert(mySecondNode, myFirstNode);
@@ -116,12 +116,28 @@ public class LinkedListPracticeTest {
 		INode<Integer> mySecondNode = new MyNode<>(30);
 		INode<Integer> myThirdNode = new MyNode<>(56);
 		INode<Integer> nodeToInsert = new MyNode<Integer>(40);
-		LinkedListPractice llp = new LinkedListPractice();
+		SortedLinkedList llp = new SortedLinkedList();
 		llp.add(myFirstNode);
 		llp.add(mySecondNode);
 		llp.add(myThirdNode);
 		llp.insert(nodeToInsert, mySecondNode);
 		boolean test = (3 == llp.showSizeByDeleting(40));
+		assertTrue(test);
+	}
+	
+	@Test
+	public void sortedNodeAddLinkedListTest10() {
+		INode<Integer> myFirstNode = new MyNode<>(70);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(56);
+		INode<Integer> myFourthNode = new MyNode<Integer>(40);
+		SortedLinkedList sll = new SortedLinkedList();
+		INode<Integer> head = sll.sortedAdd(myFirstNode);
+		head = sll.sortedAdd(mySecondNode);
+		head = sll.sortedAdd(myThirdNode);
+		head = sll.sortedAdd(myFourthNode);
+		boolean test = (30 == head.getData() && 40 == head.getNext().getData()
+				       && 56 == head.getNext().getNext().getData() && sll.getTail().getData() == 70);
 		assertTrue(test);
 	}
 }

@@ -18,6 +18,10 @@ public class MyNode<T> implements INode<T> {
 		this.next = myNode;
 	}
 
+	public void setData(T d) {
+		data = d;
+	}
+
 	public T getData() {
 		return data;
 	}
