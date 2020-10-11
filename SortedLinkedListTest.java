@@ -124,7 +124,7 @@ public class SortedLinkedListTest {
 		boolean test = (3 == llp.showSizeByDeleting(40));
 		assertTrue(test);
 	}
-	
+
 	@Test
 	public void sortedNodeAddLinkedListTest10() {
 		INode<Integer> myFirstNode = new MyNode<>(70);
@@ -137,10 +137,10 @@ public class SortedLinkedListTest {
 		head = sll.sortedAdd(myThirdNode);
 		head = sll.sortedAdd(myFourthNode);
 		boolean test = (30 == head.getData() && 40 == head.getNext().getData()
-				       && 56 == head.getNext().getNext().getData() && sll.getTail().getData() == 70);
+				&& 56 == head.getNext().getNext().getData() && sll.getTail().getData() == 70);
 		assertTrue(test);
 	}
-	
+
 	@Test
 	public void stackPushTest() {
 		INode<Integer> myFirstNode = new MyNode<>(70);
@@ -153,7 +153,7 @@ public class SortedLinkedListTest {
 		boolean test = myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode);
 		assertTrue(test);
 	}
-	
+
 	@Test
 	public void stackPeekAndPopTest() {
 		INode<Integer> myFirstNode = new MyNode<>(70);
@@ -172,7 +172,7 @@ public class SortedLinkedListTest {
 		test = 70 == sll.peek(top);
 		assertTrue(test);
 	}
-	
+
 	@Test
 	public void enqueueTest() {
 		INode<Integer> myFirstNode = new MyNode<>(56);
@@ -183,6 +183,20 @@ public class SortedLinkedListTest {
 		llp.enqueue(mySecondNode);
 		llp.enqueue(myThirdNode);
 		boolean test = myFirstNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myThirdNode);
+		assertTrue(test);
+	}
+
+	@Test
+	public void dequeueTest() {
+		INode<Integer> myFirstNode = new MyNode<>(56);
+		INode<Integer> mySecondNode = new MyNode<>(30);
+		INode<Integer> myThirdNode = new MyNode<>(70);
+		SortedLinkedList llp = new SortedLinkedList();
+		llp.enqueue(myFirstNode);
+		llp.enqueue(mySecondNode);
+		llp.enqueue(myThirdNode);
+		boolean test = llp.dequeue().equals(myFirstNode) && llp.dequeue().equals(mySecondNode)
+				&& llp.dequeue().equals(myThirdNode);
 		assertTrue(test);
 	}
 }

@@ -138,12 +138,19 @@ public class SortedLinkedList {
 
 	// Pop operation on stack
 	public INode<Integer> popStack() {
-		 head = head.getNext();
-		 return head;
+		head = head.getNext();
+		return head;
 	}
-	
+
 	// Enqueue operation in queue
 	public void enqueue(INode<Integer> myNode) {
 		append(myNode);
+	}
+
+	// Dequeue Operation in queue
+	public INode<Integer> dequeue() {
+		INode temp = head;
+		head = head.getNext();
+		return temp;
 	}
 }
